@@ -12,7 +12,7 @@ level: {
   enum: ["Easy Peasy", "Amateur Chef", "UltraPro Che"]
 },
 ingredients: [ String ],
-cusine: {
+cuisine: {
   type: String,
   required: true
 },

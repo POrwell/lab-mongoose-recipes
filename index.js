@@ -74,12 +74,23 @@ return Recipe.findOneAndUpdate({title: "Rigatoni alla Genovese"}, {duration: 100
   .then((updatedRecipe) => {console.log("Your recipe has been updated!", updatedRecipe)
 })
 
+// ITERATION 5
 .then(() => {
   return Recipe.deleteOne({title: "Carrot Cake"})
 })
 
 .then((result) => {
   console.log("Your recipe has been deleted", result)
+})
+
+// ITERATION 6
+
+.then (() => {
+mongoose.disconnect();
+})
+
+.then (() => {
+  console.log("You have disconnected your Database")
 })
 
   .catch(error => {

@@ -67,12 +67,19 @@ return newRecipes})
   })
 
   // ITERATION 4
-  .then((result) => {
-    //console.log(result);
+  .then(() => {
 return Recipe.findOneAndUpdate({title: "Rigatoni alla Genovese"}, {duration: 100}, {new: true});
   })
 
   .then((updatedRecipe) => {console.log("Your recipe has been updated!", updatedRecipe)
+})
+
+.then(() => {
+  return Recipe.deleteOne({title: "Carrot Cake"})
+})
+
+.then((result) => {
+  console.log("Your recipe has been deleted", result)
 })
 
   .catch(error => {

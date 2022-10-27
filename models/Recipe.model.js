@@ -9,7 +9,7 @@ title: {
 },
 level: {
   type: String,
-  enum: ["Easy Peasy", "Amateur Chef", "UltraPro Che"]
+  enum: ["Easy Peasy", "Amateur Chef", "UltraPro Chef"]
 },
 ingredients: [ String ],
 cuisine: {

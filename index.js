@@ -19,7 +19,7 @@ mongoose
     // Run your code here, after you have insured that the connection was made
 
     // ITERATION 2 - CREATE SINGLE RECIPE
-    /*const recipe1 = {
+    const recipe1 = {
       title: "Chicken Pie",
       level: "Easy Peasy",
       ingredients: ["chicken", "pie"],
@@ -27,7 +27,7 @@ mongoose
       dishType: "main_course"
     }
     const newRecipe = Recipe.create(recipe1);
-    console.log(recipe1.title);*/
+    console.log(recipe1.title); 
 
     // ITERATION 3 - CREATE AN ARRAY OF RECIPES (own array created)
 /*const recipes = [
@@ -54,10 +54,27 @@ const newRecipes = Recipe.insertMany(recipes);
 console.log(recipes[0].title, recipes[1].title, recipes[2].title); */
 
 // ITERATION 3 - CREATE AN ARRAY OF RECIPES (lab array)
-/*const newRecipes = Recipe.insertMany(data);
-console.log(data[0].title, data[1].title, data[2].title, data[3].title, data[4].title);
-*/
+const newRecipes = Recipe.insertMany(data);
+return newRecipes})
+.then(() => {
+  const insertedRecipes = data.map((element) => {
+    return element.title
   })
+  return insertedRecipes
+})
+  .then((result) => {
+    console.log(result)
+  })
+
+  // ITERATION 4
+  .then((result) => {
+    //console.log(result);
+return Recipe.findOneAndUpdate({title: "Rigatoni alla Genovese"}, {duration: 100}, {new: true});
+  })
+
+  .then((updatedRecipe) => {console.log("Your recipe has been updated!", updatedRecipe)
+})
+
   .catch(error => {
     console.error('Error connecting to the database', error);
   }); 
